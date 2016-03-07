@@ -51,6 +51,17 @@ FieldType Field::get(int x, int y)
  bool Field::isSafe(int x, int y)
  {
  	//TODO: Complete this function, isSafe(int,int)
+ 	if(x < 0 || x >= FIELD_DIMENSION || y < 0 || y >= FIELD_DIMENSION)
+ 	{
+ 		throw "Out of bounds";
+        return false;
+ 	}
+    if(_map[x][y] == MINE_HIDDEN ||_map[x][y] == MINE_SHOWN)
+    //if(x == MINE_HIDDEN || x == MINE_SHOWN || y == MINE_HIDDEN || y == MINE_SHOWN)
+    {
+        throw"Out of bounds";
+        return false;
+    }
  	return true;
  }
 
